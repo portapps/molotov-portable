@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.1.0-4 (2019/02/25)
+## 3.1.0-5 (2019/02/25)
 
 * Fix inverted win32 and win64 packages
 
