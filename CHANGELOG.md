@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.0-6 (2019/03/25)
+
+* Portapps 1.20.3
+
 ## 3.1.0-5 (2019/02/25)
 
 * Fix inverted win32 and win64 packages
