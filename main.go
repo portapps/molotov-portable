@@ -6,23 +6,28 @@ import (
 	"os"
 
 	. "github.com/portapps/portapps"
+	"github.com/portapps/portapps/pkg/utl"
+)
+
+var (
+	app *App
 )
 
 func init() {
-	Papp.ID = "molotov-portable"
-	Papp.Name = "Molotov"
-	Init()
+	var err error
+
+	// Init app
+	if app, err = New("molotov-portable", "Molotov"); err != nil {
+		Log.Fatal().Err(err).Msg("Cannot initialize application. See log file for more info.")
+	}
 }
 
 func main() {
-	Papp.AppPath = AppPathJoin("app")
-	Papp.DataPath = CreateFolder(AppPathJoin("data"))
+	utl.CreateFolder(app.DataPath)
+	electronBinPath := utl.PathJoin(app.AppPath, utl.FindElectronAppFolder("app-", app.AppPath))
 
-	electronBinPath := PathJoin(Papp.AppPath, FindElectronAppFolder("app-", Papp.AppPath))
+	app.Process = utl.PathJoin(electronBinPath, "Molotov.exe")
+	app.WorkingDir = electronBinPath
 
-	Papp.Process = PathJoin(electronBinPath, "Molotov.exe")
-	Papp.Args = nil
-	Papp.WorkingDir = electronBinPath
-
-	Launch(os.Args[1:])
+	app.Launch(os.Args[1:])
 }
