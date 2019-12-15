@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.2.1-9 (2019/12/15)
+
+* Molotov 4.2.1
+* Add cleanup config
+* Portapps 1.31.0
+
 ## 4.1.0-8 (2019/08/07)
 
 * Molotov 4.1.0
