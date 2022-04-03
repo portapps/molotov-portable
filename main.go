@@ -36,10 +36,7 @@ func init() {
 
 func main() {
 	utl.CreateFolder(app.DataPath)
-	electronAppPath := app.ElectronAppPath()
-
-	app.Process = utl.PathJoin(electronAppPath, "Molotov.exe")
-	app.WorkingDir = electronAppPath
+	app.Process = utl.PathJoin(app.AppPath, "Molotov.exe")
 	app.Args = []string{
 		"--user-data-dir=" + app.DataPath,
 	}
